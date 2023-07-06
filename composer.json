@@ -1,0 +1,22 @@
+{
+    "name": "ids-b2b/response-formatter",
+    "description": "Package for B2B project",
+    "license": "GPL-3.0-only",
+    "autoload": {
+        "psr-4": {
+            "Idsb2b\\ResponseFormatter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ilshat",
+            "email": "ilshat19994@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "laravel/framework": "^9.0"
+    }
+}
