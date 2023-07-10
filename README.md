@@ -10,3 +10,5 @@
     }
 }
 ```
+
+1. Необходимо заменить validation.php на [validation.php](resources%2Flang%2Fen%2Fvalidation.php)

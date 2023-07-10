@@ -2,12 +2,21 @@
 
 namespace Idsb2b\ResponseFormatter\Traits;
 
+use Idsb2b\ResponseFormatter\Contracts\ErrorInterface;
+use Illuminate\Http\JsonResponse;
+
 trait ApiResponseTrait
 {
-    public function errorResponse(Error $error)
+    /**
+     * @param ErrorInterface $error
+     * @return JsonResponse
+     */
+    public function errorResponse(ErrorInterface $error): JsonResponse
     {
         return response()->json([
-            'error' => $this->errorToArray($error),
-        ], $error->status());
+            'type' => $error->type(),
+            'localKey' => $error->localKey(),
+            'fields' => $error->fields(),
+        ]);
     }
 }
