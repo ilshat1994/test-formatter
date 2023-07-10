@@ -4,6 +4,7 @@ namespace Idsb2b\ResponseFormatter\Traits;
 
 use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 use Idsb2b\ResponseFormatter\Response\Errors\ErrorFactory;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Throwable;
 use Illuminate\Http\Request;
@@ -44,7 +45,10 @@ trait ExceptionRenderTrait
             );
         } elseif ($exception instanceof FormatterException) {
             $error = $errors->errorFormatter($exception->getMessageCode());
+        } elseif ($exception instanceof ModelNotFoundException) {
+            $error = $errors->errorNotFound($exception->getMessage());
         }
+
 
         return $this->errorResponse($error);
     }

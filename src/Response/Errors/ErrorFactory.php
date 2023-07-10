@@ -5,6 +5,7 @@ namespace Idsb2b\ResponseFormatter\Response\Errors;
 
 use Idsb2b\ResponseFormatter\Contracts\ErrorInterface;
 use Idsb2b\ResponseFormatter\Enums\ErrorLocalKeyEnum;
+use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 use Idsb2b\ResponseFormatter\ValidationConvert;
 
 class ErrorFactory
@@ -23,9 +24,24 @@ class ErrorFactory
         );
     }
 
+    /**
+     * Ошибка типа FormatterException.
+     * @param string $messageCode
+     * @return ErrorInterface
+     */
     final public function errorFormatter(string $messageCode): ErrorInterface
     {
         return $this->error($messageCode);
+    }
+
+    /**
+     * Ошибка типа ModelNotFoundException.
+     * @param string $messageCode
+     * @return ErrorInterface
+     */
+    final public function errorNotFound(string $message): ErrorInterface
+    {
+        return $this->error(ErrorLocalKeyEnum::MODEL_NOT_FOUND);
     }
 
     /**
