@@ -13,6 +13,6 @@ abstract class FormatterException extends Exception
      */
     final public function getMessageCode(): string
     {
-        return $this->message;
+        return $this->messageCode;
     }
 }
