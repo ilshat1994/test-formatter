@@ -2,6 +2,7 @@
 
 namespace Idsb2b\ResponseFormatter\Traits;
 
+use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 use Idsb2b\ResponseFormatter\Response\Errors\ErrorFactory;
 use Illuminate\Validation\ValidationException;
 use Throwable;
@@ -20,11 +21,11 @@ trait ExceptionRenderTrait
      * @param Closure $defaultRender
      * @return Response
      */
-    public function renderError(
+    final public function renderError(
         Request   $request,
         Throwable $exception,
         Closure   $defaultRender
-    )
+    ): Response
     {
         $isLocalWithoutDebug = env('APP_DEBUG', false)
             && in_array(env('APP_ENV'), ['local']);
@@ -41,6 +42,8 @@ trait ExceptionRenderTrait
                 $exception->validator->getMessageBag()->toArray(),
                 $exception->validator->failed()
             );
+        } elseif ($exception instanceof FormatterException) {
+            $error = $errors->errorFormatter($exception->getMessageCode());
         }
 
         return $this->errorResponse($error);

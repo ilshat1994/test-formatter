@@ -23,6 +23,11 @@ class ErrorFactory
         );
     }
 
+    final public function errorFormatter(string $messageCode): ErrorInterface
+    {
+        return $this->error($messageCode);
+    }
+
     /**
      * Преобразовывает ошибку валидации в нужный для нас вид.
      * @param array $validationErrors
