@@ -6,13 +6,22 @@ use Exception;
 
 abstract class FormatterException extends Exception
 {
-    protected string $messageCode = 'default';
+    protected string $localKey = 'default';
+    protected array $parameters = [];
 
     /**
      * @return string
      */
-    final public function getMessageCode(): string
+    final public function getLocalKey(): string
     {
-        return $this->messageCode;
+        return $this->localKey;
+    }
+
+    /**
+     * @return array
+     */
+    final public function getParameters(): array
+    {
+        return $this->parameters;
     }
 }

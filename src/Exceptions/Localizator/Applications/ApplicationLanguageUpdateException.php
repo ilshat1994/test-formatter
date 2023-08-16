@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class ApplicationLanguageUpdateException extends FormatterException
 {
-    protected string $messageCode = 'LAP-00008';
+    protected string $localKey = 'LAP-00008';
 }

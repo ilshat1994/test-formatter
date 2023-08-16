@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class CatalogItemNotFoundException extends FormatterException
 {
-    protected string $messageCode = 'LCI-00003';
+    protected string $localKey = 'LCI-00003';
 }

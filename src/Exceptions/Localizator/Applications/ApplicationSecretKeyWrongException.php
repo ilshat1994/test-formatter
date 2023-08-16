@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class ApplicationSecretKeyWrongException extends FormatterException
 {
-    protected string $messageCode = 'LAP-00007';
+    protected string $localKey = 'LAP-00007';
 }

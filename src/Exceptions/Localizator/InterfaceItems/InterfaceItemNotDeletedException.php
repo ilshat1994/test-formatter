@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class InterfaceItemNotDeletedException extends FormatterException
 {
-    protected string $messageCode = 'LII-00004';
+    protected string $localKey = 'LII-00004';
 }

@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class DataBaseQueryException extends FormatterException
 {
-    protected string $messageCode = 'LGL-00002';
+    protected string $localKey = 'LGL-00002';
 }

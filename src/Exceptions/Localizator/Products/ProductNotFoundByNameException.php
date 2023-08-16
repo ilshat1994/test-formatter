@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class ProductNotFoundByNameException extends FormatterException
 {
-    protected string $messageCode = 'LPR-00002';
+    protected string $localKey = 'LPR-00002';
 }

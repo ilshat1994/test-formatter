@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class OrganizationNotUpdatedException extends FormatterException
 {
-    protected string $messageCode = 'LOR-00004';
+    protected string $localKey = 'LOR-00004';
 }

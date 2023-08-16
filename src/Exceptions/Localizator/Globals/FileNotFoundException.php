@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class FileNotFoundException extends FormatterException
 {
-    protected string $messageCode = 'LGL-00003';
+    protected string $localKey = 'LGL-00003';
 }

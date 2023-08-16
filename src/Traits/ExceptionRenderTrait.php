@@ -2,9 +2,11 @@
 
 namespace Idsb2b\ResponseFormatter\Traits;
 
+use Idsb2b\ResponseFormatter\Contracts\ErrorInterface;
 use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 use Idsb2b\ResponseFormatter\Response\Errors\ErrorFactory;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
 use Throwable;
 use Illuminate\Http\Request;
@@ -13,8 +15,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 trait ExceptionRenderTrait
 {
-    use ApiResponseTrait;
-
     /**
      * Функция генерации ошибки.
      * @param Request $request
@@ -32,7 +32,6 @@ trait ExceptionRenderTrait
             return $this->debugErrorResponse($exception);
         }
 
-        $error = null;
         $errors = new ErrorFactory();
 
         if ($exception instanceof ValidationException) {
@@ -41,14 +40,43 @@ trait ExceptionRenderTrait
                 $exception->validator->failed()
             );
         } elseif ($exception instanceof FormatterException) {
-            $error = $errors->errorFormatter($exception->getMessageCode());
+            $error = $errors->errorFormatter($exception->getLocalKey(), $exception->getParameters());
         } elseif ($exception instanceof ModelNotFoundException) {
-            $error = $errors->errorNotFound($exception->getMessage());
+            $error = $errors->errorNotFound();
         } else {
             return $defaultRender($request, $exception);
         }
 
 
         return $this->errorResponse($error);
+    }
+
+    /**
+     * Возвращает ошибку в нужном виде. Необходимо для прода.
+     * @param ErrorInterface $error
+     * @return JsonResponse
+     */
+    private function errorResponse(ErrorInterface $error): JsonResponse
+    {
+        return response()->json([
+            'type' => $error->type(),
+            'localKey' => $error->localKey(),
+            'fields' => $error->fields(),
+            'parameters' => $error->parameters()
+        ]);
+    }
+
+    /**
+     * Возвращает ошибку с трейсом. Нужно для дебага.
+     * @param Throwable $error
+     * @return JsonResponse
+     */
+    private function debugErrorResponse(Throwable $error): JsonResponse
+    {
+        return response()->json([
+            'code' => $error->getCode(),
+            'message' => $error->getMessage(),
+            'trace' => $error->getTrace(),
+        ]);
     }
 }

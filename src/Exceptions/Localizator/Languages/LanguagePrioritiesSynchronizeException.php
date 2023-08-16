@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class LanguagePrioritiesSynchronizeException extends FormatterException
 {
-    protected string $messageCode = 'LLN-00006';
+    protected string $localKey = 'LLN-00006';
 }

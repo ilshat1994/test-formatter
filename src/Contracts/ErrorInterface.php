@@ -46,6 +46,12 @@ interface ErrorInterface
      */
     public function fields(): ?array;
 
+    /**
+     * @return array|null
+     */
+    public function parameters(): ?array;
+    public function setParameters(array $parameters = []): ErrorInterface;
+
     public function setType(string $type = 'ERROR'): ErrorInterface;
 
     public function setLocalKey(string $localKey): ErrorInterface;

@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class UserOwnerExistsException extends FormatterException
 {
-    protected string $messageCode = 'USR-00001';
+    protected string $localKey = 'USR-00001';
 }

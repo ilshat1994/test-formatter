@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class ApplicationNotUpdatedException extends FormatterException
 {
-    protected string $messageCode = 'LAP-00011';
+    protected string $localKey = 'LAP-00011';
 }

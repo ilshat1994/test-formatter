@@ -20,26 +20,27 @@ class ErrorFactory
     {
         return $this->error(
             ErrorLocalKeyEnum::VALIDATION_ERROR,
+            [],
             $this->generateValidationFields($validationErrors, $failed),
         );
     }
 
     /**
      * Ошибка типа FormatterException.
-     * @param string $messageCode
+     * @param string $localKey
+     * @param array $parameters
      * @return ErrorInterface
      */
-    final public function errorFormatter(string $messageCode): ErrorInterface
+    final public function errorFormatter(string $localKey, array $parameters): ErrorInterface
     {
-        return $this->error($messageCode);
+        return $this->error($localKey, $parameters);
     }
 
     /**
      * Ошибка типа ModelNotFoundException.
-     * @param string $messageCode
      * @return ErrorInterface
      */
-    final public function errorNotFound(string $message): ErrorInterface
+    final public function errorNotFound(): ErrorInterface
     {
         return $this->error(ErrorLocalKeyEnum::MODEL_NOT_FOUND);
     }
@@ -81,20 +82,22 @@ class ErrorFactory
     }
 
     /**
-     * @param array $fields
      * @param string $localKey
+     * @param array $fields
      * @param string|null $type
+     * @param array $parameters
      * @return ErrorInterface
      */
     final public function error(
-        string  $localKey,
-        array   $fields = [],
-        ?string $type = 'ERROR'
-    ): ErrorInterface
-    {
+        string $localKey,
+        array $parameters = [],
+        array $fields = [],
+        ?string $type = 'ERROR',
+    ): ErrorInterface {
         return (new Error())
             ->setFields($fields)
             ->setLocalKey($localKey)
-            ->setType($type);
+            ->setType($type)
+            ->setParameters($parameters);
     }
 }

@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class TypeErrorException extends FormatterException
 {
-    protected string $messageCode = 'LGL-00004';
+    protected string $localKey = 'LGL-00004';
 }

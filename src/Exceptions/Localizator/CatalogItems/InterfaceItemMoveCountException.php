@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class InterfaceItemMoveCountException extends FormatterException
 {
-    protected string $messageCode = 'LCI-00005';
+    protected string $localKey = 'LCI-00005';
 }

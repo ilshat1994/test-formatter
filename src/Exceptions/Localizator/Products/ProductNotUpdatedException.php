@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class ProductNotUpdatedException extends FormatterException
 {
-    protected string $messageCode = 'LPR-00004';
+    protected string $localKey = 'LPR-00004';
 }

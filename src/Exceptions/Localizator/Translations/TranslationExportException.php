@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class TranslationExportException extends FormatterException
 {
-    protected string $messageCode = 'LTR-00005';
+    protected string $localKey = 'LTR-00005';
 }

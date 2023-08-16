@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class ApplicationNotFoundByNameException extends FormatterException
 {
-    protected string $messageCode = 'LAP-00009';
+    protected string $localKey = 'LAP-00009';
 }

@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class CatalogItemNotUpdatedException extends FormatterException
 {
-    protected string $messageCode = 'LCI-00004';
+    protected string $localKey = 'LCI-00004';
 }

@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class LanguageNotAddedException extends FormatterException
 {
-    protected string $messageCode = 'LLN-00002';
+    protected string $localKey = 'LLN-00002';
 }

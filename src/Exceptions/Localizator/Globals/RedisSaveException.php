@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class RedisSaveException extends FormatterException
 {
-    protected string $messageCode = 'LGL-00001';
+    protected string $localKey = 'LGL-00001';
 }

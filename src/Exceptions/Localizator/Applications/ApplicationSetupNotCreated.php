@@ -6,5 +6,5 @@ use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
 
 class ApplicationSetupNotCreated extends FormatterException
 {
-    protected string $messageCode = 'LAP-00004';
+    protected string $localKey = 'LAP-00004';
 }
