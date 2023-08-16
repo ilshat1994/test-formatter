@@ -26,7 +26,7 @@ public function render($request, Throwable $e): Response|JsonResponse
 }
 ```
 2. [validation.php](resources%2Flang%2Fen%2Fvalidation.php) замените на [validation.php](resources%2Flang%2Fen%2Fvalidation.php)
-3. Работает только в то случае если в .env не будет local.
+3. Необходимо отключить дебаг режим. В случае если режим включет. То errorResponse будет в себе содержать всю информацию об ошибке. 
 ```dotenv
-APP_ENV=prod
+APP_DEBUG=false
 ```
