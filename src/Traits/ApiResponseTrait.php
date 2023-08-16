@@ -12,11 +12,11 @@ use Throwable;
 trait ApiResponseTrait
 {
     /**
-     * @param array $data
+     * @param $data
      * @param array $params
      * @return JsonResponse
      */
-    final public function createdResponse(array $data = [], array $params = []): JsonResponse
+    final public function createdResponse($data = [], array $params = []): JsonResponse
     {
         return $this->successResponse(
             $data,
@@ -29,7 +29,7 @@ trait ApiResponseTrait
     /**
      * Возвращает ответ success.
      *
-     * @param array $data
+     * @param $data
      * @param string $localKey
      * @param array $parameters
      * @param int $code
@@ -37,7 +37,7 @@ trait ApiResponseTrait
      * @return JsonResponse
      */
     final public function successResponse(
-        array $data,
+        $data,
         string $localKey = '',
         array $parameters = [],
         int $code = ResponseAlias::HTTP_OK
@@ -64,12 +64,12 @@ trait ApiResponseTrait
      * }
      *```
      *
-     * @param array $data
+     * @param $data
      * @param int $code
      *
      * @return JsonResponse
      */
-    final public function dataResponse(array $data, int $code = ResponseAlias::HTTP_OK): JsonResponse
+    final public function dataResponse($data, int $code = ResponseAlias::HTTP_OK): JsonResponse
     {
         return response()->json([ 'type' => 'DATA', 'data' => $data], $code);
     }
