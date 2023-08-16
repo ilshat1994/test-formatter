@@ -28,10 +28,7 @@ trait ExceptionRenderTrait
         Closure   $defaultRender
     ): Response
     {
-        $isLocalWithoutDebug = env('APP_DEBUG', false)
-            && in_array(env('APP_ENV'), ['local']);
-
-        if ($isLocalWithoutDebug) {
+        if (env('APP_DEBUG', false)) {
             return $this->localErrorResponse($exception);
         }
 
