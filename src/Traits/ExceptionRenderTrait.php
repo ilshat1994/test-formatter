@@ -32,7 +32,7 @@ trait ExceptionRenderTrait
             && in_array(env('APP_ENV'), ['local']);
 
         if ($isLocalWithoutDebug) {
-            return $defaultRender($request, $exception);
+            return $this->localErrorResponse($exception);
         }
 
         $error = null;
@@ -47,6 +47,8 @@ trait ExceptionRenderTrait
             $error = $errors->errorFormatter($exception->getMessageCode());
         } elseif ($exception instanceof ModelNotFoundException) {
             $error = $errors->errorNotFound($exception->getMessage());
+        } else {
+            return $defaultRender($request, $exception);
         }
 
 
