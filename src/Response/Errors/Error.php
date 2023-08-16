@@ -9,6 +9,7 @@ class Error implements ErrorInterface
     private string $type = 'ERROR';
     private string $localKey;
     private array $fields = [];
+    private array $parameters = [];
 
     /**
      * @return string
@@ -63,6 +64,25 @@ class Error implements ErrorInterface
     final public function setFields(array $fields): ErrorInterface
     {
         $this->fields = $fields;
+
+        return $this;
+    }
+
+    /**
+     * @return array|null
+     */
+    final public function parameters(): ?array
+    {
+        return $this->parameters;
+    }
+
+    /**
+     * @param array $parameters
+     * @return ErrorInterface
+     */
+    final public function setParameters(array $parameters = []): ErrorInterface
+    {
+        $this->parameters = $parameters;
 
         return $this;
     }
