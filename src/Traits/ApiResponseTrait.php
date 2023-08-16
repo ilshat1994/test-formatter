@@ -23,11 +23,11 @@ trait ApiResponseTrait
     }
 
     /**
-     * Возвращает ошибку с трейсом. Нужно для локальной разработки.
+     * Возвращает ошибку с трейсом. Нужно для дебага.
      * @param Throwable $error
      * @return JsonResponse
      */
-    final public function localErrorResponse(Throwable $error): JsonResponse
+    final public function debugErrorResponse(Throwable $error): JsonResponse
     {
         return response()->json([
             'code' => $error->getCode(),

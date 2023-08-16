@@ -29,7 +29,7 @@ trait ExceptionRenderTrait
     ): Response
     {
         if (env('APP_DEBUG', false)) {
-            return $this->localErrorResponse($exception);
+            return $this->debugErrorResponse($exception);
         }
 
         $error = null;
