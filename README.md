@@ -17,7 +17,6 @@ use Throwable;
 
 
 
-
 use ExceptionRenderTrait;
 
 public function render($request, Throwable $e)
@@ -31,4 +30,27 @@ public function render($request, Throwable $e)
 3. Необходимо отключить дебаг режим. В случае если режим включет. То errorResponse будет в себе содержать всю информацию об ошибке. 
 ```dotenv
 APP_DEBUG=false
+```
+
+
+# Использование
+
+1. В любом месте кода необходимо вызывать ошибку, которая есть в 
+```php
+throw new ApplicationNotFoundException();
+```
+
+2. Либо если необходимо создать свою ошибку, то наследуйтесь от FormatterException. Параметры localKey и parameters необязательны.
+```php
+<?php
+
+namespace App\Exceptions\Languages;
+
+use Idsb2b\ResponseFormatter\Exceptions\FormatterException;
+
+class TestException extends FormatterException
+{
+    protected string $localKey = 'localKey';
+    protected array $parameters = ['firstKey' => 'firstItem', 'secondKey' => 'secondItem'];
+}
 ```

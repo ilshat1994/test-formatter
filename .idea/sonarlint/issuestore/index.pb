@@ -17,8 +17,6 @@ J
 src/Enums/LocalKeyEnum.php,9/0/9088858bc5c2f6a8b98f6fd5196bfd37d00e1a6a
 ~
 Nsrc/Exceptions/Localizator/Applications/ApplicationLanguageUpdateException.php,e/9/e9d306e53007df4ae2d6cdabd339a9b5dc32c52e
-~
-Nsrc/Exceptions/Localizator/Applications/ApplicationNotFoundByNameException.php,1/2/1230b8c8d9ca79761fd8aed259eb5f2dd541d015
 z
 Jsrc/Exceptions/Localizator/CatalogItems/CatalogItemNotCreatedException.php,c/3/c3b55da011229fe38a25a514f5599568169c475d
 x
