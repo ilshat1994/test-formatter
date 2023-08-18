@@ -12,13 +12,15 @@
 
 1. Добавьте в Handler.php следущее.
 ```php
-/**
- * @param $request
- * @param Throwable $e
- * @return Response|JsonResponse
- * @throws Throwable
- */
-public function render($request, Throwable $e): Response|JsonResponse
+use Idsb2b\ResponseFormatter\Traits\ExceptionRenderTrait;
+use Throwable;
+
+
+
+
+use ExceptionRenderTrait;
+
+public function render($request, Throwable $e)
 {
     return $this->renderError($request, $e, function ($request, $e) {
         return parent::render($request, $e);
