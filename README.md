@@ -35,7 +35,7 @@ APP_DEBUG=false
 
 # Использование
 
-1. В любом месте кода необходимо вызывать ошибку, которая есть в 
+1. В любом месте кода необходимо вызывать ошибку, которая есть в [Exceptions](src%2FExceptions)
 ```php
 throw new ApplicationNotFoundException();
 ```
